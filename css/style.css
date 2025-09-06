@@ -41,6 +41,7 @@ body {
 .nav-links a:hover { color: #22c55e; }
 
 /* Hero */
+/* Hero */
 .hero {
   position: relative;
   height: 100vh;
@@ -49,29 +50,32 @@ body {
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  background: url("../images/bg.jpg") no-repeat center center/cover;
 }
-.hero video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
+
 .hero-overlay {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.6);
-  z-index: -1;
+  z-index: 0;
 }
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
 .hero-content h1 {
   font-size: 3.5rem;
   color: #fff;
   text-shadow: 0 0 20px rgba(34,197,94,0.6);
   animation: waveText 3s infinite ease-in-out;
 }
+
 .hero-content h1 span { color: #22c55e; }
 .hero-content p { margin: 1rem 0; font-size: 1.3rem; opacity: 0; animation: fadeIn 3s forwards 1s; }
+
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
