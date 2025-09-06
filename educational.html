@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educational eBooks - Glimo</title>
+  <link rel="stylesheet" href="css/ebooks.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar glassy">
+      <a href="index.html" class="logo">Glimo <span>eBooks</span></a>
+      <ul class="nav-links">
+        <li><a href="ebooks.html">Back</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="ebooks-page"> 
+    <h1>📘 Educational eBooks</h1>
+    <div class="cards">
+
+      <!-- Ebook 1 -->
+      <div class="ebook-card">
+        <img src="images/fw1.jpg" alt="Freelance Writing">
+        <h3>Freelance Writing Mastery</h3>
+        <p>
+          Learn how to build a profitable freelance writing career.
+          <span class="more-text" style="display:none;">
+            From finding high-paying clients to mastering productivity, this guide gives you the roadmap to turn your words into income.
+          </span>
+        </p>
+        <button class="toggle-btn" onclick="toggleText(this)">Read More</button>
+        <a href="checkout.html?ebook=writer-beginner" class="btn-card">Buy $9.99</a>
+      </div>
+
+      <!-- Ebook 2 -->
+      <div class="ebook-card">
+        <img src="images/dgm1.jpg" alt="Digital Marketing">
+        <h3>Digital Marketing Essentials</h3>
+        <p>
+          Discover step-by-step strategies
+          <span class="more-text" style="display:none;">
+            to grow your online presence, attract customers, and increase sales. Perfect for beginners who want to master social media, SEO, and content marketing.
+          </span>
+        </p>
+        <button class="toggle-btn" onclick="toggleText(this)">Read More</button>
+        <a href="checkout.html?ebook=digital-marketing-beginner" class="btn-card">Buy $9.99</a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function toggleText(button) {
+      const paragraph = button.previousElementSibling;
+      const moreText = paragraph.querySelector(".more-text");
+
+      if (moreText.style.display === "none") {
+        moreText.style.display = "inline";
+        button.textContent = "Read Less";
+      } else {
+        moreText.style.display = "none";
+        button.textContent = "Read More";
+      }
+    }
+  </script>
+
+  <footer class="glassy">
+    &copy; 2025 Glimo eBooks. All rights reserved.
+  </footer>
+</body>
+</html>

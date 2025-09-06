@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our eBooks - Glimo</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/ebooks.css">
 </head>
 <body>
   <header>
@@ -18,56 +18,22 @@
     </nav>
   </header>
 
-<section class="ebooks-page"> 
-  <h1>Our eBooks</h1>
-  <div class="cards">
+  <section class="category-landing">
+    <h1>Explore Our eBooks</h1>
+    <div class="category-cards">
+      <a href="educational.html" class="category-card">
+        <img src="images/edu.jpg" alt="Educational eBooks">
+        <h2>📘 Educational eBooks</h2>
+        <p>Learn skills in writing, marketing, and more.</p>
+      </a>
 
-    <!-- Ebook 1 -->
-    <div class="ebook-card">
-      <img src="images/fw1.jpg" alt="Freelance Writing">
-      <h3>Freelance Writing Mastery</h3>
-      <p>
-        Learn how to build a profitable freelance writing career.
-        <span class="more-text" style="display:none;">
-          From finding high-paying clients to mastering productivity, this guide gives you the roadmap to turn your words into income.
-        </span>
-      </p>
-      <button class="toggle-btn" onclick="toggleText(this)">Read More</button>
-      <a href="checkout.html?ebook=writer-beginner" class="btn-card">Buy $9.99</a>
+      <a href="skills.html" class="category-card">
+        <img src="images/skills.jpg" alt="Skills & Entrepreneurship eBooks">
+        <h2>🚀 Skills & Entrepreneurship</h2>
+        <p>Guides to business success and personal growth.</p>
+      </a>
     </div>
-
-    <!-- Ebook 2 -->
-    <div class="ebook-card">
-      <img src="images/dgm1.jpg" alt="Digital Marketing">
-      <h3>Digital Marketing Essentials</h3>
-      <p>
-        Discover step-by-step strategies
-        <span class="more-text" style="display:none;">
-          to grow your online presence, attract customers, and increase sales. Perfect for beginners who want to master social media, SEO, and content marketing.
-        </span>
-      </p>
-      <button class="toggle-btn" onclick="toggleText(this)">Read More</button>
-      <a href="checkout.html?ebook=digital-marketing-beginner" class="btn-card">Buy $9.99</a>
-    </div>
-
-  </div>
-</section>
-
-<script>
-  function toggleText(button) {
-    const paragraph = button.previousElementSibling;
-    const moreText = paragraph.querySelector(".more-text");
-
-    if (moreText.style.display === "none") {
-      moreText.style.display = "inline";
-      button.textContent = "Read Less";
-    } else {
-      moreText.style.display = "none";
-      button.textContent = "Read More";
-    }
-  }
-</script>
-
+  </section>
 
   <footer class="glassy">
     &copy; 2025 Glimo eBooks. All rights reserved.

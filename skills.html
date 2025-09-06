@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills & Entrepreneurship eBooks - Glimo</title>
+  <link rel="stylesheet" href="css/ebooks.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar glassy">
+      <a href="index.html" class="logo">Glimo <span>eBooks</span></a>
+      <ul class="nav-links">
+        <li><a href="ebooks.html">Back</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="ebooks-page"> 
+    <h1>🚀 Skills & Entrepreneurship eBooks</h1>
+    <div class="cards">
+
+      <div class="ebook-card">
+        <img src="images/entrepreneur.jpg" alt="Entrepreneurship">
+        <h3>Entrepreneurship for Beginners</h3>
+        <p>
+          Learn how to start and grow a successful business with proven strategies.
+          <span class="more-text" style="display:none;">
+            Covers business planning, marketing, customer acquisition, and financial growth hacks.
+          </span>
+        </p>
+        <button class="toggle-btn" onclick="toggleText(this)">Read More</button>
+        <a href="checkout.html?ebook=entrepreneurship" class="btn-card">Buy $9.99</a>
+      </div>
+
+      <div class="ebook-card">
+        <img src="images/skills.jpg" alt="Skills Development">
+        <h3>21st Century Skills</h3>
+        <p>
+          Master essential skills to thrive in today’s fast-changing world.
+          <span class="more-text" style="display:none;">
+            Learn problem solving, creativity, leadership, and digital literacy that will make you future-proof.
+          </span>
+        </p>
+        <button class="toggle-btn" onclick="toggleText(this)">Read More</button>
+        <a href="checkout.html?ebook=skills-success" class="btn-card">Buy $9.99</a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function toggleText(button) {
+      const paragraph = button.previousElementSibling;
+      const moreText = paragraph.querySelector(".more-text");
+
+      if (moreText.style.display === "none") {
+        moreText.style.display = "inline";
+        button.textContent = "Read Less";
+      } else {
+        moreText.style.display = "none";
+        button.textContent = "Read More";
+      }
+    }
+  </script>
+
+  <footer class="glassy">
+    &copy; 2025 Glimo eBooks. All rights reserved.
+  </footer>
+</body>
+</html>
