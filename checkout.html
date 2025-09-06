@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Glimo eBooks</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .checkout-section { max-width: 750px; margin: 2rem auto; text-align: center; }
+    .ebook-checkout-card {
+      display: flex;
+      gap: 2rem;
+      padding: 1rem;
+      border-radius: 12px;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 2rem;
+    }
+    .ebook-checkout-card img { width: 180px; border-radius: 12px; }
+    .ebook-info { text-align: left; }
+    .ebook-info h2 { margin-bottom: 0.5rem; }
+    .ebook-info p { margin-bottom: 0.5rem; }
+    #paypal-button-container { margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar glassy">
+      <a href="index.html" class="logo">Glimo <span>eBooks</span></a>
+      <ul class="nav-links">
+        <li><a href="ebooks.html">eBooks</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="checkout-section">
+    <h1>Checkout</h1>
+
+    <div class="ebook-checkout-card glassy">
+      <img id="ebook-img" src="" alt="Ebook Image">
+      <div class="ebook-info">
+        <h2 id="ebook-title">Loading your ebook...</h2>
+        <p id="ebook-desc"></p>
+        <p><strong>Price:</strong> $9.99</p>
+      </div>
+    </div>
+
+    <div id="paypal-button-container"></div>
+  </section>
+
+  <footer class="glassy">
+    &copy; 2025 Glimo eBooks. All rights reserved.
+  </footer>
+
+  <!-- PayPal SDK with Card Payments -->
+  <script src="https://www.paypal.com/sdk/js?client-id=AaKmghtjW1SPGZytSWBoQPweCZkZE5uNaONB5daO-OjLCugTKh14j2EEKKelqEc91iHXlrntESOAWwGH&currency=USD&enable-funding=card"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const ebook = params.get("ebook");
+
+      let ebookTitle = "";
+      let ebookFile = "";
+      let ebookImg = "";
+      let ebookDesc = "";
+
+      if (ebook === "writer-beginner") {
+        ebookTitle = "Freelance Writing";
+        ebookFile = "ebooks/writer-beginner.pdf";
+        ebookImg = "images/fw1.jpg";
+        ebookDesc = "Learn how to build a profitable freelance writing career. From finding high-paying clients to mastering productivity, this guide gives you the roadmap to turn your words into income.";
+      } else if (ebook === "digital-marketing-beginner") {
+        ebookTitle = "Digital Marketing";
+        ebookFile = "ebooks/digital-marketing-beginner.pdf";
+        ebookImg = "images/dgm1.jpg";
+        ebookDesc = "Discover step-by-step strategies to grow your online presence, attract customers, and increase sales. Perfect for beginners who want to master social media, SEO, and content marketing.";
+      }
+
+      document.getElementById("ebook-title").innerText = ebookTitle;
+      document.getElementById("ebook-desc").innerText = ebookDesc;
+      document.getElementById("ebook-img").src = ebookImg;
+
+      // ✅ PayPal Buttons
+      paypal.Buttons({
+        style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal'
+        },
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              description: ebookTitle,
+              amount: { value: '9.99' }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert("Thanks, " + details.payer.name.given_name + "! Your purchase is complete.");
+            // Redirect to ebook PDF
+            window.location.href = ebookFile;
+          });
+        },
+        onError: function(err) {
+          console.error(err);
+          alert("Something went wrong. Please try again.");
+        }
+      }).render('#paypal-button-container');
+    });
+  </script>
+</body>
+</html>
