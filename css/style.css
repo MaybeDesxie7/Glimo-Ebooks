@@ -76,6 +76,7 @@ body {
 .hero-content h1 span { color: #22c55e; }
 .hero-content p { margin: 1rem 0; font-size: 1.3rem; opacity: 0; animation: fadeIn 3s forwards 1s; }
 
+
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
